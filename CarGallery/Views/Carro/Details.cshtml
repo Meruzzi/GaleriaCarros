@@ -1,0 +1,23 @@
+﻿@model GaleriaCarros.Models.Carro
+
+<div>
+    <div class="jumbotron">
+        <div class="divImg">
+            <img class="imgDetails" src="@Model.Imagem" alt="Card image cap">
+        </div>
+        <br />
+        <h1 class="display-4">@Model.Nome</h1>
+        @if (ViewBag.Fabricantes != null)
+        {
+            var fabricante = ((List<Fabricante>)ViewBag.Fabricantes).FirstOrDefault(f => f.Id == Model.FabricanteId);
+            <p class="lead">Fabricante: @(fabricante != null ? fabricante.Nome : "Desconhecido")</p>
+        }
+        <h3>Sobre</h3>
+        <h4 class="lead">@Model.DescCompleta</h4>
+        
+        <hr class="my-4">
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Comprar</a>
+        </p>
+    </div>
+</div>
